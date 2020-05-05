@@ -1,0 +1,24 @@
+.nav-bar {
+  float: right;
+  padding: 0;
+  margin: 0;
+  background: white;
+  li {
+    display: inline-block;
+    padding: 10px 30px;
+    a {
+      text-decoration: none;
+      color: #6b6b6b !important;
+      font-size: 16px;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .nav-bar {
+    float: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+  }
+}
