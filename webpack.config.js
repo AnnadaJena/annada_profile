@@ -2,6 +2,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const isDev = require('isDev');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
   module: {
@@ -84,6 +85,10 @@ module.exports = {
       filename: isDev ? '[name].css' : '[name].[hash].css',
       chunkFilename: isDev ? '[id].css' : '[id].[hash].css'
     }),
-    new CopyPlugin([{ from: './public', to: './' }])
+    new CopyPlugin([{ from: './public', to: './' }]),
+    new WorkboxPlugin.InjectManifest({
+      swSrc: './src-sw.js',
+      swDest: 'sw.js'
+    })
   ]
 };
