@@ -86,9 +86,11 @@ module.exports = {
       chunkFilename: isDev ? '[id].css' : '[id].[hash].css'
     }),
     new CopyPlugin([{ from: './public', to: './' }]),
-    new WorkboxPlugin.InjectManifest({
-      swSrc: './src-sw.js',
-      swDest: 'sw.js'
+    new WorkboxPlugin.GenerateSW({
+      // these options encourage the ServiceWorkers to get in there fast
+      // and not allow any straggling "old" SWs to hang around
+      clientsClaim: true,
+      skipWaiting: true
     })
   ]
 };

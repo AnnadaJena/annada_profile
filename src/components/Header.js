@@ -21,6 +21,15 @@ export default function Header() {
               pathname: '/projects'
             }}
           >
+            SKILLS
+          </Link>
+        </li>
+        <li>
+          <Link
+            to={{
+              pathname: '/projects'
+            }}
+          >
             PROJECTS
           </Link>
         </li>
