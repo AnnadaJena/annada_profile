@@ -3,6 +3,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const isDev = require('isDev');
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const Terser = require('terser-webpack-plugin');
 
 module.exports = {
   module: {
@@ -76,6 +77,16 @@ module.exports = {
   performance: {
     hints: false
   },
+  optimization: {
+    // Use terser instead of the default Uglify since service
+    // worker code does not need to be transpiled to ES5.
+    minimizer: [
+      new Terser({
+        // Ensure .mjs files get included.
+        test: /\.m?js$/
+      })
+    ]
+  },
   plugins: [
     new HtmlWebPackPlugin({
       template: './public/index.html',
@@ -87,10 +98,23 @@ module.exports = {
     }),
     new CopyPlugin([{ from: './public', to: './' }]),
     new WorkboxPlugin.GenerateSW({
-      // these options encourage the ServiceWorkers to get in there fast
-      // and not allow any straggling "old" SWs to hang around
-      clientsClaim: true,
-      skipWaiting: true
+      exclude: [/\.(?:png|jpg|jpeg|svg)$/],
+
+      runtimeCaching: [
+        {
+          urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+
+          handler: 'CacheFirst',
+
+          options: {
+            cacheName: 'images',
+
+            expiration: {
+              maxEntries: 10
+            }
+          }
+        }
+      ]
     })
   ]
 };
