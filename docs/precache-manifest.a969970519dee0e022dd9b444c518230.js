@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bade0cbd7f458a59d3a7d441f15f04db",
+    "revision": "86ecd2bc5547b3f9a57873fd29aa18ba",
     "url": "./index.html"
   },
   {
@@ -12,7 +12,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "images/.DS_Store"
   },
   {
-    "revision": "b4deda82475e906308a6ca612c3e8ecc",
+    "revision": "d57ffc9fea6b061abc13d3c6f6549b25",
     "url": "index.html"
   },
   {
@@ -26,9 +26,5 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "2f241184f0945a8d81ffc8b377b092df",
     "url": "manifest.json"
-  },
-  {
-    "revision": "9922a499f8fbd058111979c12ed04bfd",
-    "url": "service-worker.js"
   }
 ]);
