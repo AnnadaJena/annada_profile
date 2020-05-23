@@ -1,12 +1,20 @@
 import React from 'react';
-import ProfilePic from '../assets/Images/Clr.jpg';
+import Clr from '../assets/Images/Clr.jpg';
 import SocialLinks from './SocialMedia';
+import BW from '../assets/Images/BW.jpg';
 import '../assets/scss/profile.scss';
 
 export default function Profile() {
+  window.addEventListener('online', updateOnlineStatus);
+  window.addEventListener('offline', updateOnlineStatus);
+
+  var profilePic = Clr;
+  function updateOnlineStatus() {
+    profilePic = navigator.onLine ? Clr : BW;
+  }
   return (
     <div className="profile">
-      <img className="profile-pic" src={ProfilePic} />
+      <img className="profile-pic" src={profilePic} />
       <h3>
         Hi! I{"'"}m <strong>Annada Jena</strong>
       </h3>
