@@ -4,8 +4,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const isDev = require('isDev');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const Terser = require('terser-webpack-plugin');
+const path = require('path');
 
 module.exports = {
+  output: {
+    path: path.resolve(__dirname, 'docs')
+  },
   module: {
     rules: [
       {
