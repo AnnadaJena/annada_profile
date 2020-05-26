@@ -1,5 +1,5 @@
 import React from 'react';
-import Clr from '../assets/Images/Clr.jpg';
+import Clr from '../assets/Images/ClrOut.jpg';
 import SocialLinks from './SocialMedia';
 import BW from '../assets/Images/BW.jpg';
 import '../assets/scss/profile.scss';
