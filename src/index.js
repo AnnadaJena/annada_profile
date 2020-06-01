@@ -6,7 +6,7 @@ import './assets/scss/index.scss';
 import Profile from './components/Profile';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
-import * as serviceWorker from './service-worker';
+import * as serviceWorker from './serviceWorker';
 
 // function init() {
 //   if ('serviceWorker' in navigator) {
