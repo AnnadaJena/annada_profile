@@ -1,4 +1,4 @@
-This project provides basic configuration to quick start a React project
+This project has been built using following framework/libraries
 
 # Preconfigured dependancies
 ## React
