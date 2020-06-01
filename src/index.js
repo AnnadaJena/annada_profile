@@ -25,8 +25,6 @@ import * as serviceWorker from './serviceWorker';
 
 // init();
 
-serviceWorker.register();
-
 ReactDOM.render(
   <Router>
     <Switch>
@@ -42,3 +40,5 @@ ReactDOM.render(
   </Router>,
   document.getElementById('root')
 );
+
+serviceWorker.register();
